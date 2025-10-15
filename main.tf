@@ -19,7 +19,7 @@ ingress_rules= [
 
     allow = [
       {
-      protocol = tcp
+      protocol = "tcp"
       ports    = ["80","443"]
    }
   ]
@@ -49,6 +49,6 @@ tags = ["${var.network_name}-web"]
       # Leave empty for dynamic public IP
     }
   }  
-metadata_start_script = "apt -y update install nginx; echo ${var.app_name} > /var/www/html/index.html"
+metadata_startup_script = "apt -y update install nginx; echo ${var.app_name} > /var/www/html/index.html"
   allow_stopping_for_update = true
 }
