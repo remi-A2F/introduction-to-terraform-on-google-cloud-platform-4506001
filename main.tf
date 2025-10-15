@@ -27,18 +27,6 @@ ingress_rules= [
 ]
 }
 
-resource "google_compute_network" "app" {
-  name                    = var.network_name
-  auto_create_subnetworks = false
-}
-
-resource "google_compute_subnetwork" "app" {
-  name          = var.network_name
-  ip_cidr_range = var.network_ip_range
-  region        = var.region
-  network       = google_compute_network.app.id
-}
-
 data "google_compute_image" "ubuntu" {
   most_recent = true
   project     = var.image_project
